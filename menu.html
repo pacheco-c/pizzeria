@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Menu della Pizzeria La Dolce Pizza">
+    <title>Menu - Pizzeria La Dolce Pizza</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset di base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(50deg, yellow, orange );
+            
+        }
+
+        header {
+            background: linear-gradient(135deg, #e74c3c, red );
+             color: white;
+            padding: 40px 0;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo img {
+            width: 120px;
+            height: auto;
+            transition: transform 0.3s ease;
+            border: 2px solid #ccc; /* Bordo opzionale */
+            border-radius: 8px; /* Bordo arrotondato opzionale */
+        }
+
+        header .logo img:hover {
+            transform: rotate(360deg);
+        }
+
+        nav {
+            margin-top: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        nav ul li {
+            display: inline-block;
+        }
+
+        nav ul li a {
+            display: inline-block;
+            padding: 12px 25px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border: 2px solid white;
+            border-radius: 25px;
+            background-color: #E90000;
+            transition: all 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            background-color: white;
+            color: #c0392b;
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-color: #c0392b;
+        }
+
+        .welcome {
+            text-align: center;
+            background-color: white;
+            border: 2px solid red;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px;
+        }
+
+        .welcome h1 {
+            color: red;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-categories {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .category {
+            margin-bottom: 60px;
+            
+        }
+
+        .category h2 {
+            font-family: 'Playfair Display', serif;
+            color: red;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .category h2::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            background-color: red;
+            bottom: 0;
+            left: 20%;
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+
+        .category h2:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .category h2:hover {
+            color: red;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .menu-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .menu-item {
+            flex: 1;
+            min-width: 250px;
+            margin: 15px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid red;
+            border-radius: 10px;
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .menu-item h3 {
+            font-size: 1.5rem;
+            color: red;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .menu-item p {
+            font-size: 1rem;
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .menu-item .price {
+            font-weight: bold;
+            color: red;
+            font-size: 1.2rem;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            background: linear-gradient(135deg, #e74c3c, red );
+            color: white;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+    
+
+        /* Media queries per dispositivi mobili */
+        @media (max-width: 768px) {
+            .menu-items {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .menu-item {
+                min-width: 300px;
+                margin: 20px 0;
+            }
+
+            header {
+                padding: 30px 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul li a {
+                font-size: 1rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header con logo e navigazione -->
+    <header>
+        <div class="logo">
+            <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/pizza-logo-design-template-bcc6f3266366747a9d5d0333532eca67_screen.jpg?ts=1649320635" alt="Logo Pizzeria">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menù</a></li>
+                <li><a href="ordinazioni.html">Ordina</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sezione del Menù -->
+    <section class="menu">
+        <section id = "home" class= "welcome">
+        <h1>Il nostro Menù</h1>
+        </section>
+        <div class="menu-categories">
+            <!-- Categoria Pizze Classiche -->
+            <div class="category">
+                <h2>Pizze Classiche</h2>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <img src="https://www.reggiadicasertaunofficial.it/wp-content/uploads/pizza-margherita-la-vera-storia.webp" alt="Pizza Margherita">
+                        <h3>Pizza Margherita</h3>
+                        <p>Pomodoro, mozzarella di bufala, basilico fresco.</p>
+                        <p class="price">€8,00</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://delivery.rossopomodoro.it/14284-large_default/sg077-diavola.jpg" alt="Pizza Diavola">
+                        <h3>Pizza Diavola</h3>
+                        <p>Pomodoro, mozzarella, salame piccante, peperoncino.</p>
+                        <p class="price">€9,50</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVtpXujXQy33_T7EYiQAwG1qkswaDlRbRlwA&s" alt="Pizza Quattro Stagioni">
+                        <h3>Pizza Quattro Stagioni</h3>
+                        <p>Pomodoro, mozzarella, prosciutto cotto, funghi, carciofi, olive nere.</p>
+                        <p class="price">€10,00</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categoria Pizze Speciali -->
+            <div class="category">
+                <h2>Pizze Speciali</h2>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsJAs85FcgOCDkOtbrw9JwPkG4umsoW2ma6A&s" alt="Pizza Tartufata">
+                        <h3>Pizza Tartufata</h3>
+                        <p>Pomodoro, mozzarella, crema al tartufo, funghi porcini.</p>
+                        <p class="price">€12,00</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1-5U-0rwsLuuOG2t92ZFwPTuEjfUJGxTPyQ&s" alt="Pizza Marinara">
+                        <h3>Pizza Marinara</h3>
+                        <p>Pomodoro, aglio, origano, olio extravergine di oliva.</p>
+                        <p class="price">€7,50</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_XOY8A_vw0bhOHdIY1X8XaGY5dIBYGjIn8g&s" alt="Pizza Vegetariana">
+                        <h3>Pizza Vegetariana</h3>
+                        <p>Pomodoro, mozzarella, verdure grigliate di stagione.</p>
+                        <p class="price">€10,00</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Altre categorie, ad esempio Pasta e Dessert -->
+            <div class="category">
+                <h2>Bevande e Dessert</h2>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwzM4JpQR-EZRfTYoCXnsSOxyqlxAhgDfWkA&s" alt="Acqua Minerale">
+                        <h3>Acqua Minerale</h3>
+                        <p>Acqua naturale o frizzante.</p>
+                        <p class="price">€2,00</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://img.stmenu.it/thumbs/selforder/immagine/large/30005.jpeg.jpg" alt="Coca-Cola">
+                        <h3>Coca-Cola</h3>
+                        <p>Soft drink alla spina.</p>
+                        <p class="price">€3,00</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQl3RL1SOc2ACb3l_pJz0EflUF72ckT6ZhqlQ&s" alt="Tiramisù">
+                        <h3>Tiramisù</h3>
+                        <p>Dessert.</p>
+                        <p class="price">€6,50</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Pizzeria La Dolce Pizza - Tutti i diritti riservati</p>
+    </footer>
+
+</body>
+</html>

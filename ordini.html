@@ -1,0 +1,360 @@
+<ordini>
+    <html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gestione Ordini</title>
+        <style>
+            
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+           body {
+                font-family: 'Roboto', sans-serif;
+                line-height: 1.6;
+                background: linear-gradient(50deg, yellow, orange );
+            
+            }
+
+            .welcome {
+                text-align: center;
+                background-color: white;
+                border: 2px solid red;
+                border-radius: 10px;
+                padding: 20px;
+                margin: 20px;
+            }
+            h1 {
+            color: red;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+        }
+            .ordine {
+                background: white;
+                margin: 10px auto;
+                padding: 15px;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                max-width: 600px;
+            }
+            .ordine h2 {
+                color: #555;
+            }
+            .ordine p {
+                margin: 5px 0;
+            }
+            .ordine .totale {
+                font-weight: bold;
+                color: red;
+            }
+            .ordine .elimina, .ordine .modifica {
+                background-color: red;
+                color: white;
+                padding: 5px 10px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            .ordine .modifica {
+                background-color: #f39c12;
+            }
+            .ordine .elimina:hover, .ordine .modifica:hover {
+                background-color: red;
+            }
+    
+            header {
+                background: linear-gradient(135deg, #e74c3c, red );
+                color: white;
+                padding: 40px 0;
+                text-align: center;
+                position: relative;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            header .logo img {
+                width: 120px;
+                height: auto;
+                transition: transform 0.3s ease;
+                border: 2px solid #ccc; /* Bordo opzionale */
+                border-radius: 8px; /* Bordo arrotondato opzionale */
+            }
+
+            header .logo img:hover {
+            transform: rotate(360deg);
+            }
+    
+            .modifica-form {
+                display: none;
+                margin-top: 20px;
+                background: #fff;
+                padding: 15px;
+                border-radius: 5px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+               
+            }
+    
+            .product-options {
+                margin-bottom: 20px;
+            }
+    
+            .product-options label {
+                margin-right: 10px;
+            }
+    
+            .product-options input {
+                margin-right: 20px;
+                width: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/pizza-logo-design-template-bcc6f3266366747a9d5d0333532eca67_screen.jpg?ts=1649320635" alt="Logo Pizzeria">
+            </div>
+        </header>
+        
+        <section id = "home" class= "welcome">
+        <h1>Elenco Ordini</h1>
+        </section>
+        <div id="ordini"></div>
+    
+        <!-- Form di modifica -->
+        <div class="modifica-form" id="modifica-form">
+            <h2>Modifica Ordine</h2>
+            <form id="form-modifica">
+                <label for="nome-modifica">Nome Cliente:</label>
+                <input type="text" id="nome-modifica" required><br><br>
+    
+                <h3>Modifica Quantità</h3>
+                <div id="pizza-list"></div>
+    
+                <div class="product-options">
+                    <h4>Aggiungi altri prodotti</h4>
+                    <label for="margherita">Margherita (€8.00):</label>
+                    <input type="number" id="margherita" value="0" min="0" oninput="aggiornaTotale()">
+                    <label for="diavola">Diavola (€9.50):</label>
+                    <input type="number" id="diavola" value="0" min="0" oninput="aggiornaTotale()">
+                    <label for="quattro_stagioni">Quattro Stagioni (€10.00):</label>
+                    <input type="number" id="quattro_stagioni" value="0" min="0" oninput="aggiornaTotale()">
+                    <label for="tartufata">Tartufata (€12.00):</label>
+                    <input type="number" id="tartufata" value="0" min="0" oninput="aggiornaTotale()">
+                    <label for="pizza_marinara">Pizza Marinara (€7.50):</label>
+                    <input type="number" id="pizza_marinara" value="0" min="0" oninput="aggiornaTotale()">
+                    <label for="pizza_vegetariana">Vegetariana (€10.00):</label>
+                    <input type="number" id="pizza_vegetariana" value="0" min="0" oninput="aggiornaTotale()">
+                    <label for="acqua_minerale">Acqua Minerale (€2.00):</label>
+                    <input type="number" id="acqua_minerale" value="0" min="0" oninput="aggiornaTotale()">
+                    <label for="coca_cola">Coca Cola (€3.00):</label>
+                    <input type="number" id="coca_cola" value="0" min="0" oninput="aggiornaTotale()">
+                    <label for="tiramisu">Tiramisù (€6.50):</label>
+                    <input type="number" id="tiramisu" value="0" min="0" oninput="aggiornaTotale()">
+                </div>
+    
+                <p class="totale">Totale: €<span id="totale-modifica">0.00</span></p>
+                <button type="submit">Aggiorna Ordine</button>
+                <button type="button" onclick="annullaModifica()">Annulla</button>
+            </form>
+        </div>
+    
+        <script>
+            let ordiniData = [];
+            const prezzi = {
+                "margherita": 8.00,
+                "diavola": 9.50,
+                "quattro_stagioni": 10.00,
+                "tartufata": 12.00,
+                "pizza_marinara": 7.50,
+                "pizza_vegetariana": 10.00,
+                "acqua_minerale": 2.00,
+                "coca_cola": 3.00,
+                "tiramisu": 6.50
+            };
+        
+            // Funzione per formattare i nomi degli ordini
+            function formattaNome(nome) {
+                return nome
+                    .replace(/_/g, ' ') // Rimuove i trattini bassi e li sostituisce con uno spazio
+                    .split(' ') // Divide la stringa in parole
+                    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()) // Capitalizza la prima lettera di ogni parola
+                    .join(' '); // Unisce le parole di nuovo in una stringa
+            }
+        
+            // Carica gli ordini
+            fetch('ordinato.json')
+                .then(response => response.json())
+                .then(data => {
+                    ordiniData = data;
+                    const ordiniContainer = document.getElementById('ordini');
+                    if (data.length === 0) {
+                        ordiniContainer.innerHTML = '<p>Nessun ordine disponibile.</p>';
+                    } else {
+                        data.forEach((ordine, index) => {
+                            const ordineDiv = document.createElement('div');
+                            ordineDiv.classList.add('ordine');
+                            ordineDiv.innerHTML = `
+                                <h2>Ordine #${index + 1}</h2>
+                                <p><strong>Cliente:</strong> ${ordine.nome}</p>
+                                <p>Data: ${ordine.data}</p>
+                                ${ordine.ordine.filter(item => item.quantita > 0).map(item => ` 
+                                    <p>${formattaNome(item.nome)} x ${item.quantita} (€${item.costo.toFixed(2)})</p>
+                                `).join('')}
+                                <p class="totale">Totale: €${ordine.totale.toFixed(2)}</p>
+                                <button class="elimina" onclick="eliminaOrdine(${index})">Elimina</button>
+                                <button class="modifica" onclick="modificaOrdine(${index})">Modifica</button>
+                            `;
+                            ordiniContainer.appendChild(ordineDiv);
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('Errore nel caricamento degli ordini:', error);
+                    document.getElementById('ordini').innerHTML = '<p>Nessun ordine disponibile.</p>';
+                });
+        
+            // Funzione per modificare un ordine
+            function modificaOrdine(index) {
+                const ordine = ordiniData[index];
+                document.getElementById('nome-modifica').value = ordine.nome;
+        
+                // Visualizza il modulo di modifica
+                const pizzaList = document.getElementById('pizza-list');
+                pizzaList.innerHTML = '';
+        
+                ordine.ordine.forEach((pizza, i) => {
+                    pizzaList.innerHTML += `
+                        <label for="pizza-${i}">${formattaNome(pizza.nome)}:</label>
+                        <input type="number" id="pizza-${i}" value="${pizza.quantita}" min="0" oninput="aggiornaTotale()"><br>
+                    `;
+                });
+        
+                // Mostra il totale
+                aggiornaTotale();
+        
+                // Mostra il modulo di modifica
+                document.getElementById('modifica-form').style.display = 'block';
+        
+                // Gestisci l'invio del form
+                document.getElementById('form-modifica').onsubmit = function(event) {
+                    event.preventDefault();
+        
+                    // Aggiorna i dati dell'ordine
+                    const nuovoNome = document.getElementById('nome-modifica').value;
+                    ordine.nome = nuovoNome;
+
+                    // Aggiorna le quantità
+                    ordine.ordine.forEach((pizza, i) => {
+                        pizza.quantita = parseInt(document.getElementById(`pizza-${i}`).value);
+                    });
+
+                    // Rimuovi gli ordini con quantità 0
+                    ordine.ordine = ordine.ordine.filter(pizza => pizza.quantita > 0);
+
+        
+                    // Aggiungi i nuovi prodotti scelti
+                    const nuoveQuantita = [];
+                    for (const prodotto in prezzi) {
+                        const quantita = parseInt(document.getElementById(prodotto).value);
+                        if (quantita > 0) {
+                            nuoveQuantita.push({ nome: prodotto, quantita: quantita, costo: prezzi[prodotto] });
+                        }
+                    }
+
+                    // Aggiungi solo nuovi prodotti senza duplicare quelli esistenti
+                    nuoveQuantita.forEach(nuovoProdotto => {
+                        const prodottoEsistente = ordine.ordine.find(pizza => pizza.nome === nuovoProdotto.nome);
+                        if (prodottoEsistente) {
+                            prodottoEsistente.quantita += nuovoProdotto.quantita;
+                        } else {
+                            ordine.ordine.push(nuovoProdotto);
+                        }
+                    });
+        
+                    
+        
+                    // Ricalcola il totale
+                    ordine.totale = ordine.ordine.reduce((total, pizza) => {
+                        return total + (pizza.quantita * pizza.costo);
+                    }, 0);
+        
+                    // Salva l'ordine aggiornato
+                    fetch('aggiorna_ordine.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ index: index, ordine: ordine })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert("Ordine aggiornato con successo.");
+                            location.reload(); // Ricarica la pagina per aggiornare l'elenco
+                        } else {
+                            alert("Errore nell'aggiornamento dell'ordine.");
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Errore nel tentativo di aggiornamento:', error);
+                        alert("Errore nella comunicazione con il server.");
+                    });
+                };
+            }
+        
+            // Funzione per annullare la modifica
+            function annullaModifica() {
+                document.getElementById('modifica-form').style.display = 'none';
+            }
+        
+            // Funzione per aggiornare il totale
+            function aggiornaTotale() {
+                const totale = document.getElementById('totale-modifica');
+                const inputs = document.querySelectorAll('.product-options input');
+                let totaleImporto = 0;
+        
+                inputs.forEach(input => {
+                    const quantita = parseInt(input.value);
+                    const prodotto = input.id;
+                    if (quantita > 0) {
+                        totaleImporto += quantita * prezzi[prodotto];
+                    }
+                });
+        
+                totale.textContent = totaleImporto.toFixed(2);
+            }
+        
+            function eliminaOrdine(index) {
+                if (confirm("Sei sicuro di voler eliminare questo ordine?")) {
+                    fetch('delete_order.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ index: index })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert("Ordine eliminato con successo.");
+                            location.reload(); // Ricarica la pagina per aggiornare l'elenco
+                        } else {
+                            alert("Errore nell'eliminazione dell'ordine.");
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Errore nel tentativo di eliminazione:', error);
+                        alert("Errore nella comunicazione con il server.");
+                    });
+                }
+            }
+        </script>
+        
+        
+    </body>
+    </html>
+    

@@ -1,0 +1,399 @@
+<ordinazioni>
+    <html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Ordinazioni della Pizzeria La Dolce Pizza">
+        <title>Ordinazioni - Pizzeria La Dolce Pizza</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+        <style>
+            /* Stili ripresi da menu.html */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+    
+            body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(50deg, yellow, orange );
+            
+            }
+    
+            header {
+            background: linear-gradient(135deg, #e74c3c, red );
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+    
+            header .logo img {
+                width: 120px;
+                height: auto;
+                transition: transform 0.3s ease;
+                border: 2px solid #ccc; /* Bordo opzionale */
+                border-radius: 8px; /* Bordo arrotondato opzionale */
+            }
+            header .logo img:hover {
+            transform: rotate(360deg);
+            }
+    
+            nav {
+                margin-top: 20px;
+            }
+    
+            nav ul {
+                list-style: none;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                gap: 25px;
+            }
+    
+            nav ul li {
+                display: inline-block;
+            }
+    
+            nav ul li a {
+                display: inline-block;
+                padding: 12px 25px;
+                color: white;
+                text-decoration: none;
+                font-weight: bold;
+                font-size: 1.2rem;
+                border: 2px solid white;
+                border-radius: 25px;
+                background-color:  #E90000;
+                transition: all 0.3s ease-in-out;
+            }
+    
+            nav ul li a:hover {
+                background-color: white;
+                color:  #c0392b;
+                transform: scale(1.1);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                border-color:  #c0392b;
+            }
+
+            .welcome {
+                text-align: center;
+                background-color: white;
+                border: 2px solid red;
+                border-radius: 10px;
+                padding: 20px;
+                margin: 20px;
+            }
+    
+            h1 {
+                text-align: center;
+                color: red;
+                margin: 20px 0;
+                font-family: 'Playfair Display', serif;
+                font-size: 3rem;
+                font-weight: bold;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+    
+            .order-form {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: white;
+                border-radius: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                border: 2px solid red;
+                border-radius: 10px;
+            }
+    
+            .form-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 15px;
+            }
+    
+            .form-item label {
+                font-size: 1.2rem;
+                font-weight: bold;
+                color: #555;
+            }
+    
+            .form-item input[type="number"] {
+                width: 60px;
+                padding: 5px;
+                font-size: 1rem;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                text-align: center;
+            }
+    
+            .total {
+                text-align: right;
+                margin-top: 20px;
+                font-size: 1.5rem;
+                font-weight: bold;
+                color: red;
+            }
+    
+            .order-button {
+                display: block;
+                width: 100%;
+                padding: 10px;
+                background-color: red;
+                color: white;
+                border: none;
+                font-size: 1.2rem;
+                font-weight: bold;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+    
+            .order-button:hover {
+                background-color: #c0392b;
+            }
+    
+            footer {
+                text-align: center;
+                background: linear-gradient(135deg, #e74c3c, red );
+                color: white;
+                padding: 20px;
+                margin-top: 40px;
+                font-size: 0.9rem;
+            }
+
+            .image-right {
+            position: absolute;
+            right: 100px; /* Distanza dal bordo destro */
+            top: 115%; /* Punto centrale verticale */
+            transform: translateY(-50%); /* Per allineare verticalmente al centro */
+            width: 150px; /* Larghezza immagine */
+            height: auto; /* Mantieni proporzioni */
+            border: 2px solid #ccc; /* Bordo opzionale */
+            border-radius: 8px; /* Bordo arrotondato opzionale */
+            transition: transform 0.3s ease;
+        }
+        .image-left {
+            position: absolute;
+            left: 100px; /* Distanza dal bordo destro */
+            top: 115%; /* Punto centrale verticale */
+            transform: translateY(-50%); /* Per allineare verticalmente al centro */
+            width: 150px; /* Larghezza immagine */
+            height: auto; /* Mantieni proporzioni */
+            border: 2px solid #ccc; /* Bordo opzionale */
+            border-radius: 8px; /* Bordo arrotondato opzionale */
+            
+        }
+        
+        </style>
+    </head>
+    <body>
+    
+    <header>
+        <div class="logo">
+            <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/pizza-logo-design-template-bcc6f3266366747a9d5d0333532eca67_screen.jpg?ts=1649320635" alt="Logo Pizzeria">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menù</a></li>
+                <li><a href="ordinazioni.html">Ordina</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section id = "home" class= "welcome">
+        <h1>Effettua un'ordinazione</h1>
+        </section>
+        <form class="order-form" action="process_order.php" method="POST">
+            <div class="form-item">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+            <div class="form-item">
+                <label for="margherita">Pizza Margherita (€8,00)</label>
+                <input type="number" id="margherita" name="margherita" min="0" value="0">
+            </div>
+            <div class="form-item">
+                <label for="diavola">Pizza Diavola (€9,50)</label>
+                <input type="number" id="diavola" name="diavola" min="0" value="0">
+            </div>
+            <div class="form-item">
+                <label for="quattro-stagioni">Pizza Quattro Stagioni (€10,00)</label>
+                <input type="number" id="quattro-stagioni" name="quattro_stagioni" min="0" value="0">
+            </div>
+            <div class="form-item">
+                <label for="tartufata">Pizza Tartufata (€12,00)</label>
+                <input type="number" id="tartufata" name="tartufata" min="0" value="0">
+            </div>
+            <div class="form-item">
+                <label for="pizza-marinara">Pizza Marinara (€7,50)</label>
+                <input type="number" id="pizza-marinara" name="pizza_marinara" min="0" value="0">
+            </div>
+            <div class="form-item">
+                <label for="pizza-vegetariana">Pizza Vegetariana (€10,00)</label>
+                <input type="number" id="pizza-vegetariana" name="pizza_vegetariana" min="0" value="0">
+            </div>
+            <div class="form-item">
+                <label for="acqua-minerale">Acqua Minerale (€2,00)</label>
+                <input type="number" id="acqua-minerale" name="acqua_minerale" min="0" value="0">
+            </div>
+            <div class="form-item">
+                <label for="coca-cola">Coca Cola (€3,00)</label>
+                <input type="number" id="coca-cola" name="coca_cola" min="0" value="0">
+            </div>
+            <div class="form-item">
+                <label for="tiramisù">Tiramisù (€6,50)</label>
+                <input type="number" id="tiramisù" name="tiramisù" min="0" value="0">
+            </div>
+    
+            <p class="total">Totale: €<span id="total-price">0.00</span></p>
+    
+            <button type="submit" class="order-button">Invia Ordinazione</button>
+        </form>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Pizzeria La Dolce Pizza - Tutti i diritti riservati</p>
+    </footer>
+    
+    <script>
+        const prices = {
+            margherita: 8.00,
+            diavola: 9.50,
+            quattro_stagioni: 10.00,
+            tartufata: 12.00,
+            pizza_marinara: 7.50,
+            pizza_vegetariana: 10.00,
+            acqua_minerale: 2.00,
+            coca_cola: 3.00,
+            tiramisù: 6.50
+        };
+    
+        const inputs = document.querySelectorAll('.form-item input');
+        const totalPriceElement = document.getElementById('total-price');
+    
+        inputs.forEach(input => {
+            input.addEventListener('input', updateTotal);
+        });
+    
+        function updateTotal() {
+            let total = 0;
+            inputs.forEach(input => {
+                if (input.type === "number") {
+                    const quantity = parseInt(input.value) || 0;
+                    const price = prices[input.name];
+                    total += quantity * price;
+                }
+            });
+            totalPriceElement.textContent = total.toFixed(2);
+        }
+    </script>
+    
+    <!-- Aggiungi questa parte all'interno del body, subito prima della chiusura di </body> -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h2>Riepilogo Ordine</h2>
+            <div id="order-summary"></div>
+            <button id="confirm-button" class="order-button">Conferma Invio</button>
+            <button id="cancel-button" class="order-button cancel-button">Annulla</button>
+        </div>
+    </div>
+    
+    <style>
+        /* Stile per la finestra modale */
+        .modal {
+            display: none; /* Nascondi la finestra per default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+    
+        .cancel-button {
+            background-color: #bdc3c7;
+            margin-top: 10px;
+        }
+    
+        .cancel-button:hover {
+            background-color: #95a5a6;
+        }
+    </style>
+    
+    <script>
+        const modal = document.getElementById('modal');
+        const confirmButton = document.getElementById('confirm-button');
+        const cancelButton = document.getElementById('cancel-button');
+        const orderSummary = document.getElementById('order-summary');
+        const form = document.querySelector('.order-form');
+    
+        // Intercetta il submit del form per mostrare la modale
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Previeni l'invio del form immediato
+            showSummary();
+        });
+    
+        // Mostra il riepilogo degli ordini
+        function showSummary() {
+            let summary = '<ul>';
+            let total = 0;
+    
+            inputs.forEach(input => {
+                const quantity = parseInt(input.value) || 0;
+                if (quantity > 0) {
+                    const price = prices[input.name];
+                    total += quantity * price;
+                    summary += `<li>${input.name.replace('_', ' ')}: ${quantity} x €${price.toFixed(2)}</li>`;
+                }
+            });
+    
+            summary += `</ul><p><strong>Totale: €${total.toFixed(2)}</strong></p>`;
+            orderSummary.innerHTML = summary;
+    
+            modal.style.display = 'flex'; // Mostra la finestra modale
+        }
+    
+        // Gestisce il click su "Conferma Invio"
+        confirmButton.addEventListener('click', function() {
+            modal.style.display = 'none';
+            form.submit(); // Invia il modulo
+        });
+    
+        // Gestisce il click su "Annulla"
+        cancelButton.addEventListener('click', function() {
+            modal.style.display = 'none'; // Nasconde la finestra modale
+        });
+    
+        // Chiudi la modale se clicchi fuori
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+
+    <img class="image-right" src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/pizza-logo-design-template-bcc6f3266366747a9d5d0333532eca67_screen.jpg?ts=1649320635" alt="Immagine a destra">
+    <img class="image-left" src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/pizza-logo-design-template-bcc6f3266366747a9d5d0333532eca67_screen.jpg?ts=1649320635" alt="Immagine a destra">
+    
+    </body>
+    </html>
+    
