@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conferma ordinazione - Pizzeria La Dolce Pizza">
+    <title>Conferma Ordine - Pizzeria La Dolce Pizza</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(50deg, yellow, orange );
+            
+        }
+
+        header {
+            background: linear-gradient(135deg, #e74c3c, red );
+             color: white;
+            padding: 40px 0;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo img {
+            width: 120px;
+            height: auto;
+            transition: transform 0.3s ease;
+            border: 2px solid #ccc; /* Bordo opzionale */
+            border-radius: 8px; /* Bordo arrotondato opzionale */
+        }
+        header .logo img:hover {
+            transform: rotate(360deg);
+            }
+
+        nav {
+            margin-top: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        nav ul li {
+            display: inline-block;
+        }
+
+        nav ul li a {
+            display: inline-block;
+            padding: 12px 25px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border: 2px solid white;
+            border-radius: 25px;
+            background-color: #E90000;
+            transition: all 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            background-color: white;
+            color: #c0392b;
+            transform: scale(1.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            border-color: #c0392b;
+        }
+
+        h1 {
+            color: red;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            text-align: center;
+            color: black;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/pizza-logo-design-template-bcc6f3266366747a9d5d0333532eca67_screen.jpg?ts=1649320635" alt="Logo Pizzeria">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menù</a></li>
+                <li><a href="ordinazioni.html">Ordina</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Grazie per aver effettuato l'ordine!</h1>
+    <p>Il tuo ordine è stato ricevuto con successo.</p>
+    
+    
+</body>
+</html>

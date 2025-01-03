@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pizzeria deliziosa - Pizza fatta con amore">
+    <title>Pizzeria La Dolce Pizza</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset di base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(50deg, yellow, orange );
+            
+        }
+
+        header {
+            background: linear-gradient(135deg, #e74c3c, red );
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo img {
+            width: 120px;
+            height: auto;
+            transition: transform 0.3s ease;
+            border: 2px solid #ccc; /* Bordo opzionale */
+            border-radius: 8px; /* Bordo arrotondato opzionale */
+        }
+        header .logo img:hover {
+            transform: rotate(360deg);
+        }
+
+        nav {
+            margin-top: 15px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        nav ul li {
+            display: inline-block;
+        }
+
+        nav ul li a {
+            display: inline-block;
+            padding: 12px 25px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border: 2px solid white;
+            border-radius: 25px;
+            background-color: #E90000;
+            transition: all 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            background-color: white;
+            color: #c0392b;
+            transform: scale(1.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            border-color: #c0392b;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px;
+            
+        }
+
+        .welcome {
+            text-align: center;
+            background-color: white;
+            border: 2px solid red;
+            border-radius: 10px;
+        }
+
+        
+        .welcome h1 {
+            color: red;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .presentation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            border: 2px solid red;
+            border-radius: 10px;
+            background-image: url('https://st3.depositphotos.com/5269633/36314/i/450/depositphotos_363146628-stock-photo-pepperoni-pizza-beige-background-beautiful.jpg');
+            background-size: cover; /* Per coprire l'intera area */
+        }
+
+        .presentation .box {
+            flex: 1;
+            margin: 0 10px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 2px solid red;
+        }
+
+        /* Stile per i titoli delle sezioni */
+        .presentation h3 {
+            color: red;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            border-bottom: 3px solid red;
+            padding-bottom: 10px;
+            transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        .presentation h3:hover {
+            transform: scale(1.1);
+            color: red;
+        }
+
+        .presentation p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        
+
+        
+
+        footer {
+            text-align: center;
+            background: linear-gradient(135deg, #e74c3c, red );
+            color: white;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header con logo e navigazione -->
+    <header>
+        <div class="logo">
+            <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/pizza-logo-design-template-bcc6f3266366747a9d5d0333532eca67_screen.jpg?ts=1649320635" alt="Logo Pizzeria">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="menu.html">Menù</a></li>
+                <li><a href="ordinazioni.html">Ordina</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sezione di benvenuto -->
+    <section id="home" class="welcome">
+        <h1>Benvenuti alla Pizzeria La Dolce Pizza!</h1>
+        <p>Le migliori pizze della città, fatte con amore e ingredienti freschi.</p>
+        
+    </section>
+
+    <!-- Sezione Presentazione -->
+    <section id="presentation" class="presentation">
+        <div class="box">
+            <h3> La nostra storia: Passione per la pizza </h3>
+            <p>"La nostra pizzeria nasce da una grande passione per la cucina italiana. Marco, il fondatore, dopo un viaggio in Italia, ha deciso di portare nel nostro paese l’autentica pizza fatta a mano, utilizzando solo ingredienti freschi e di qualità. Ogni pizza che prepariamo è il risultato di tradizione, amore e tanta dedizione, con l’obiettivo di offrire un’esperienza unica a chiunque entri nel nostro locale."</p>
+        </div>
+        <div class="box">
+            <h3> Ingredienti freschi e di qualità </h3>
+            <p>"Per noi, la pizza è una questione di qualità. Ogni giorno selezioniamo con cura ingredienti freschi e locali, dalla mozzarella di bufala campana alle verdure di stagione. L’amore per la tradizione e la ricerca di sapori autentici sono alla base di ogni piatto che serviamo, per regalarti un’esperienza gustativa che non dimenticherai."</p>
+        </div>
+        <div class="box">
+            <h3> Un'atmosfera accogliente </h3>
+            <p>"La nostra pizzeria è il posto perfetto per ogni occasione: una cena in famiglia, un incontro con gli amici o una serata romantica. Con un ambiente caldo e accogliente, ti facciamo sentire come a casa, offrendo un servizio attento e una pizza che ti farà tornare ogni volta che vuoi goderti un momento speciale."</p>
+        </div>
+    </section>
+
+    <!-- Sezione contatti -->
+    <section id="contact" class="contact">
+        <h2>Contattaci</h2>
+        <p>Vieni a trovarci o ordina online!</p>
+        <address>
+            <p>Via delle Pizze, 123 - 00100 Roma</p>
+            <p>Telefono: +39 06 12345678</p>
+            <p>Email: info@ladolcepizza.it</p>
+        </address>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Pizzeria La Dolce Pizza - Tutti i diritti riservati</p>
+    </footer>
+</body>
+</html>
